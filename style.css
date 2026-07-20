@@ -895,74 +895,86 @@ box-shadow:
 /*==============================
 COUNTDOWN
 ==============================*/
-
+/*==============================
+COUNTDOWN
+==============================*/
 .countdown{
 
-margin-top:55px;
+display:flex;
 
-display:grid;
+justify-content:center;
 
-grid-template-columns:repeat(4,1fr);
+align-items:center;
 
-gap:24px;
+gap:18px;
+
+flex-wrap:wrap;
+
+margin-top:45px;
 
 }
 
 .count-box{
 
-padding:28px 20px;
+width:120px;
 
-border-radius:24px;
+height:120px;
 
-background:
+display:flex;
 
-rgba(255,255,255,.06);
+flex-direction:column;
 
-backdrop-filter:blur(18px);
+justify-content:center;
 
-border:
+align-items:center;
 
-1px solid rgba(212,175,55,.18);
+background:rgba(255,255,255,.08);
 
-box-shadow:
+border:1px solid rgba(212,175,55,.25);
 
-0 15px 40px rgba(0,0,0,.30);
+border-radius:20px;
 
-transition:.35s;
+backdrop-filter:blur(15px);
+
+box-shadow:0 10px 30px rgba(0,0,0,.30);
+
+transition:.3s;
 
 }
 
 .count-box:hover{
 
-transform:
+transform:translateY(-5px);
 
-translateY(-8px);
-
-border-color:var(--gold);
+border-color:#D4AF37;
 
 }
 
 .count-box h2{
 
+font-size:38px;
+
 font-family:'Cinzel',serif;
 
-font-size:52px;
+color:#D4AF37;
 
-color:var(--gold);
+margin:0;
 
-margin-bottom:8px;
+line-height:1;
 
 }
 
 .count-box span{
 
-font-size:15px;
+margin-top:10px;
 
-letter-spacing:2px;
+font-size:14px;
+
+letter-spacing:1px;
 
 text-transform:uppercase;
 
-color:#e8e8e8;
+color:#ffffff;
 
 }
 
