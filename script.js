@@ -213,111 +213,77 @@ Example:
 
 */
 
-const weddingDate=new Date("2026-12-25T11:00:00").getTime();
+/*==============================
+COUNTDOWN
+==============================*/
 
-function updateCountdown(){
+const countdown = document.getElementById("countdown");
 
-if(!countdown) return;
+// Wedding Date
+const weddingDate = new Date("2026-08-09T11:00:00").getTime();
 
-const now=new Date().getTime();
+function updateCountdown() {
 
-const distance=weddingDate-now;
+    if (!countdown) return;
 
-if(distance<=0){
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-countdown.innerHTML=`
+    if (distance <= 0) {
 
-<div class="count-box">
+        countdown.innerHTML = `
+            <div class="count-box">
+                <h2>🎉</h2>
+                <span>Wedding Day Mubarak</span>
+            </div>
+        `;
 
-<h2>🎉</h2>
+        return;
+    }
 
-<span>Wedding Day Mubarak</span>
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-</div>
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
 
-`;
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
 
-return;
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+    );
 
-}
+    countdown.innerHTML = `
+        <div class="count-box">
+            <h2>${String(days).padStart(2, "0")}</h2>
+            <span>Days</span>
+        </div>
 
-const days=Math.floor(
+        <div class="count-box">
+            <h2>${String(hours).padStart(2, "0")}</h2>
+            <span>Hours</span>
+        </div>
 
-distance/(1000*60*60*24)
+        <div class="count-box">
+            <h2>${String(minutes).padStart(2, "0")}</h2>
+            <span>Minutes</span>
+        </div>
 
-);
-
-const hours=Math.floor(
-
-(distance%(1000*60*60*24))
-
-/
-
-(1000*60*60)
-
-);
-
-const minutes=Math.floor(
-
-(distance%(1000*60*60))
-
-/
-
-(1000*60)
-
-);
-
-const seconds=Math.floor(
-
-(distance%(1000*60))
-
-/
-
-1000
-
-);
-
-countdown.innerHTML=`
-
-<div class="count-box">
-
-<h2>${days}</h2>
-
-<span>Days</span>
-
-</div>
-
-<div class="count-box">
-
-<h2>${hours}</h2>
-
-<span>Hours</span>
-
-</div>
-
-<div class="count-box">
-
-<h2>${minutes}</h2>
-
-<span>Minutes</span>
-
-</div>
-
-<div class="count-box">
-
-<h2>${seconds}</h2>
-
-<span>Seconds</span>
-
-</div>
-
-`;
-
+        <div class="count-box">
+            <h2>${String(seconds).padStart(2, "0")}</h2>
+            <span>Seconds</span>
+        </div>
+    `;
 }
 
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown, 1000);
 
 /*==============================
 SCROLL REVEAL
