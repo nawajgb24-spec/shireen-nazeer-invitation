@@ -146,6 +146,12 @@ sections.forEach(section=>observer.observe(section));
 BACK TO TOP
 ==================================================*/
 
+/*==================================================
+BACK TO TOP
+==================================================*/
+
+if(backToTop){
+
 window.addEventListener("scroll",()=>{
 
 if(window.scrollY>600){
@@ -171,6 +177,8 @@ behavior:"smooth"
 });
 
 });
+
+}
 
 /*==================================================
 HERO BUTTON
