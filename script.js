@@ -1,15 +1,17 @@
 /*==================================================
-    SHIREEN & NAZEER
-    PREMIUM WEDDING WEBSITE
+SHIREEN & NAZEER
+PREMIUM WEDDING WEBSITE
+SCRIPT.JS
+PART 1
 ==================================================*/
 
 "use strict";
 
-/*=========================================
- LOADER
-=========================================*/
+/*==================================================
+LOADER
+==================================================*/
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
 const loader=document.getElementById("loader");
 
@@ -18,117 +20,175 @@ setTimeout(()=>{
 loader.style.opacity="0";
 loader.style.visibility="hidden";
 
-setTimeout(()=>{
+document.body.style.overflow="visible";
 
-loader.remove();
-
-},700);
-
-},1800);
+},2200);
 
 });
 
-/*=========================================
- SMOOTH SCROLL
-=========================================*/
+/*==================================================
+COUNTDOWN
+==================================================*/
 
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
+const weddingDate=new Date("December 20, 2026 11:30:00").getTime();
 
-link.addEventListener("click",e=>{
-
-e.preventDefault();
-
-const target=document.querySelector(link.getAttribute("href"));
-
-if(target){
-
-target.scrollIntoView({
-
-behavior:"smooth",
-block:"start"
-
-});
-
-}
-
-});
-
-});
-
-/*=========================================
- COUNTDOWN
-=========================================*/
-
-const eventDate=new Date("2026-08-09T11:30:00").getTime();
+const day=document.getElementById("days");
+const hour=document.getElementById("hours");
+const minute=document.getElementById("minutes");
+const second=document.getElementById("seconds");
 
 function updateCountdown(){
 
 const now=new Date().getTime();
 
-const distance=eventDate-now;
+const gap=weddingDate-now;
 
-if(distance<=0){
+const d=Math.floor(gap/(1000*60*60*24));
 
-document.getElementById("days").textContent="00";
-document.getElementById("hours").textContent="00";
-document.getElementById("minutes").textContent="00";
-document.getElementById("seconds").textContent="00";
+const h=Math.floor(
+(gap%(1000*60*60*24))
+/
+(1000*60*60)
+);
 
-return;
+const m=Math.floor(
+(gap%(1000*60*60))
+/
+(1000*60)
+);
+
+const s=Math.floor(
+(gap%(1000*60))
+/
+1000
+);
+
+if(day) day.innerHTML=d<10?"0"+d:d;
+if(hour) hour.innerHTML=h<10?"0"+h:h;
+if(minute) minute.innerHTML=m<10?"0"+m:m;
+if(second) second.innerHTML=s<10?"0"+s:s;
+
+if(gap<0){
+
+clearInterval(counter);
+
+document.getElementById("countdown").innerHTML=
+
+"<h2 style='color:#d4af37'>💖 Nikah Mubarak 💖</h2>";
 
 }
-
-const days=Math.floor(distance/(1000*60*60*24));
-
-const hours=Math.floor(
-
-(distance%(1000*60*60*24))
-
-/
-
-(1000*60*60)
-
-);
-
-const minutes=Math.floor(
-
-(distance%(1000*60*60))
-
-/
-
-(1000*60)
-
-);
-
-const seconds=Math.floor(
-
-(distance%(1000*60))
-
-/
-
-1000
-
-);
-
-document.getElementById("days").textContent=String(days).padStart(2,"0");
-
-document.getElementById("hours").textContent=String(hours).padStart(2,"0");
-
-document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
-
-document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
 
 }
 
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+const counter=setInterval(updateCountdown,1000);
 
-/*=========================================
- SHARE BUTTON
-=========================================*/
+/*==================================================
+SMOOTH SCROLL
+==================================================*/
 
-const shareBtn=document.getElementById("shareButton");
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+window.scrollTo({
+
+top:target.offsetTop-40,
+
+behavior:"smooth"
+
+});
+
+}
+
+});
+
+});
+
+/*==================================================
+BACK TO TOP
+==================================================*/
+
+const backBtn=document.getElementById("backToTop");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>600){
+
+backBtn.classList.add("show");
+
+}else{
+
+backBtn.classList.remove("show");
+
+}
+
+});
+
+if(backBtn){
+
+backBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+}
+
+/*==================================================
+SCROLL REVEAL
+==================================================*/
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+
+threshold:.15
+
+});
+
+document.querySelectorAll(
+
+".fade-up,.person,.detail-box,.invite-box,.glass-card"
+
+).forEach(el=>{
+
+el.classList.add("fade-up");
+
+observer.observe(el);
+
+});
+
+/*==================================================
+SHARE BUTTON
+==================================================*/
+
+const shareBtn=document.getElementById("shareBtn");
 
 if(shareBtn){
 
@@ -138,7 +198,7 @@ const shareData={
 
 title:"Shireen ❤️ Nazeer Wedding Invitation",
 
-text:"You are cordially invited to our Nikah Ceremony.",
+text:"You are warmly invited to our Nikah Ceremony.",
 
 url:window.location.href
 
@@ -150,11 +210,7 @@ try{
 
 await navigator.share(shareData);
 
-}catch(e){
-
-console.log(e);
-
-}
+}catch(e){}
 
 }else{
 
@@ -169,317 +225,479 @@ alert("Invitation link copied successfully.");
 }
 
 /*==================================================
-    SCROLL REVEAL ANIMATION
+FLOATING GOLDEN PARTICLES
 ==================================================*/
 
-const revealElements=document.querySelectorAll(
+function createParticle(){
 
-".section-title,.person,.detail-box,.contact-btn,.map-box,.invite-box,.calendar-box,.qr-box,.dua-box,.footer-box"
+const particle=document.createElement("span");
 
-);
+particle.className="particle";
 
-const observer=new IntersectionObserver(entries=>{
+particle.style.left=Math.random()*100+"vw";
 
-entries.forEach(entry=>{
+const size=(Math.random()*5)+2;
 
-if(entry.isIntersecting){
+particle.style.width=size+"px";
 
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
-observer.unobserve(entry.target);
+particle.style.height=size+"px";
+
+particle.style.animationDuration=
+
+(Math.random()*10+12)+"s";
+
+particle.style.animationDelay=
+
+(Math.random()*5)+"s";
+
+particle.style.opacity=Math.random();
+
+document.body.appendChild(particle);
+
+setTimeout(()=>{
+
+particle.remove();
+
+},25000);
 
 }
 
-});
-
-},{
-threshold:0.15
-});
-
-revealElements.forEach(el=>{
-
-el.style.opacity="0";
-el.style.transform="translateY(60px)";
-el.style.transition="all .8s ease";
-
-observer.observe(el);
-
-});
-
+setInterval(createParticle,250);
 
 /*==================================================
-    BACK TO TOP BUTTON
+TWINKLING STARS
 ==================================================*/
 
-const topBtn=document.createElement("button");
+function createStar(){
 
-topBtn.id="topButton";
+const star=document.createElement("span");
 
-topBtn.innerHTML="⬆";
+star.style.position="fixed";
 
-document.body.appendChild(topBtn);
+star.style.left=Math.random()*100+"vw";
 
-Object.assign(topBtn.style,{
+star.style.top=Math.random()*100+"vh";
 
-position:"fixed",
-right:"25px",
-bottom:"25px",
-width:"58px",
-height:"58px",
-borderRadius:"50%",
-border:"none",
-background:"#7a0019",
-color:"#fff",
-fontSize:"24px",
-cursor:"pointer",
-display:"none",
-zIndex:"9999",
-boxShadow:"0 10px 25px rgba(0,0,0,.25)",
-transition:".3s"
+star.style.width="2px";
 
-});
+star.style.height="2px";
 
-window.addEventListener("scroll",()=>{
+star.style.borderRadius="50%";
 
-topBtn.style.display=
+star.style.background="#fff";
 
-window.scrollY>350
+star.style.opacity=Math.random();
 
-?
+star.style.boxShadow="0 0 10px white";
 
-"block"
+star.style.pointerEvents="none";
 
-:
+star.style.zIndex="-2";
 
-"none";
+star.style.animation=
 
-});
+"starBlink "+(Math.random()*3+2)+"s infinite";
 
-topBtn.addEventListener("click",()=>{
+document.body.appendChild(star);
 
-window.scrollTo({
+}
 
-top:0,
+for(let i=0;i<180;i++){
 
-behavior:"smooth"
+createStar();
 
-});
+}
 
-});
+const starStyle=document.createElement("style");
 
+starStyle.innerHTML=`
+
+@keyframes starBlink{
+
+0%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.5);
+
+}
+
+100%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+}
+
+`;
+
+document.head.appendChild(starStyle);
 
 /*==================================================
-    ACTIVE BUTTON EFFECT
+BUTTON RIPPLE EFFECT
 ==================================================*/
 
 document.querySelectorAll(
 
-".hero-btn,.contact-btn,.calendar-btn,.share-btn"
+".hero-btn,.calendar-btn,.share-btn,.contact-btn"
 
-).forEach(btn=>{
+).forEach(button=>{
 
-btn.addEventListener("mouseenter",()=>{
+button.addEventListener("click",function(e){
 
-btn.style.transform="translateY(-5px) scale(1.03)";
+const circle=document.createElement("span");
+
+const diameter=Math.max(
+
+this.clientWidth,
+
+this.clientHeight
+
+);
+
+circle.style.width=diameter+"px";
+
+circle.style.height=diameter+"px";
+
+circle.style.position="absolute";
+
+circle.style.borderRadius="50%";
+
+circle.style.background="rgba(255,255,255,.35)";
+
+circle.style.transform="scale(0)";
+
+circle.style.left=
+
+e.offsetX-diameter/2+"px";
+
+circle.style.top=
+
+e.offsetY-diameter/2+"px";
+
+circle.style.animation="ripple .6s linear";
+
+circle.style.pointerEvents="none";
+
+this.style.position="relative";
+
+this.style.overflow="hidden";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+
+circle.remove();
+
+},600);
 
 });
 
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="translateY(0) scale(1)";
-
 });
 
-});
+const ripple=document.createElement("style");
 
+ripple.innerHTML=`
+
+@keyframes ripple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(ripple);
 
 /*==================================================
-    PAGE TITLE BLINK
+MOUSE GLOW EFFECT
+==================================================*/
+
+const glow=document.createElement("div");
+
+glow.style.position="fixed";
+glow.style.width="280px";
+glow.style.height="280px";
+glow.style.borderRadius="50%";
+glow.style.pointerEvents="none";
+glow.style.background=
+"radial-gradient(circle,rgba(212,175,55,.15),transparent 70%)";
+glow.style.filter="blur(18px)";
+glow.style.zIndex="-1";
+glow.style.transition="transform .08s linear";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=(e.clientX-140)+"px";
+
+glow.style.top=(e.clientY-140)+"px";
+
+});
+
+/*==================================================
+NAVBAR ACTIVE LINKS
+==================================================*/
+
+const sections=document.querySelectorAll("section");
+
+const navLinks=document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-180;
+
+const height=section.offsetHeight;
+
+if(window.scrollY>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+/*==================================================
+PAGE TITLE ANIMATION
 ==================================================*/
 
 const originalTitle=document.title;
 
-let blink=false;
+let titleTimer=null;
 
-setInterval(()=>{
+window.addEventListener("blur",()=>{
 
-if(document.hidden){
+let state=false;
+
+titleTimer=setInterval(()=>{
 
 document.title=
 
-blink
+state
 
 ?
 
-"💍 Wedding Invitation"
+"💖 We Are Waiting For You"
 
 :
 
-originalTitle;
+"✨ Shireen ❤️ Nazeer";
 
-blink=!blink;
-
-}else{
-
-document.title=originalTitle;
-
-}
+state=!state;
 
 },1500);
 
-/*==================================================
-    FLOATING GOLD PARTICLES
-==================================================*/
-
-const particleContainer=document.createElement("div");
-
-particleContainer.id="particles";
-
-Object.assign(particleContainer.style,{
-
-position:"fixed",
-top:"0",
-left:"0",
-width:"100%",
-height:"100%",
-pointerEvents:"none",
-overflow:"hidden",
-zIndex:"1"
-
 });
 
-document.body.appendChild(particleContainer);
+window.addEventListener("focus",()=>{
 
-function createParticle(){
+clearInterval(titleTimer);
 
-const p=document.createElement("span");
-
-const size=Math.random()*8+4;
-
-Object.assign(p.style,{
-
-position:"absolute",
-width:size+"px",
-height:size+"px",
-borderRadius:"50%",
-background:"rgba(212,175,55,.55)",
-left:Math.random()*window.innerWidth+"px",
-top:window.innerHeight+20+"px",
-opacity:.8,
-transition:"transform 12s linear, opacity 12s linear"
+document.title=originalTitle;
 
 });
-
-particleContainer.appendChild(p);
-
-requestAnimationFrame(()=>{
-
-const x=(Math.random()*200)-100;
-
-p.style.transform=`translate(${x}px,-${window.innerHeight+300}px)`;
-
-p.style.opacity="0";
-
-});
-
-setTimeout(()=>{
-
-p.remove();
-
-},12000);
-
-}
-
-setInterval(createParticle,500);
-
 
 /*==================================================
-    IMAGE LAZY ANIMATION
+IMAGE HOVER ZOOM
 ==================================================*/
 
 document.querySelectorAll("img").forEach(img=>{
 
-img.addEventListener("load",()=>{
+img.addEventListener("mouseenter",()=>{
 
-img.style.opacity="1";
+img.style.transition=".6s";
+
+img.style.transform="scale(1.04)";
+
+});
+
+img.addEventListener("mouseleave",()=>{
 
 img.style.transform="scale(1)";
 
 });
 
-img.style.opacity="0";
-
-img.style.transform="scale(.96)";
-
-img.style.transition=".6s";
-
 });
 
-
 /*==================================================
-    MOBILE MENU FIX
+FLOATING ICONS
 ==================================================*/
 
-window.addEventListener("orientationchange",()=>{
+const icons=["✨","🌙","⭐","🤍","🕌"];
+
+function floatingIcon(){
+
+const icon=document.createElement("div");
+
+icon.innerHTML=
+
+icons[Math.floor(Math.random()*icons.length)];
+
+icon.style.position="fixed";
+
+icon.style.left=Math.random()*100+"vw";
+
+icon.style.bottom="-60px";
+
+icon.style.fontSize=
+
+(Math.random()*16+18)+"px";
+
+icon.style.pointerEvents="none";
+
+icon.style.opacity=".65";
+
+icon.style.zIndex="-1";
+
+icon.style.animation=
+
+"iconFloat "+(Math.random()*8+10)+"s linear forwards";
+
+document.body.appendChild(icon);
 
 setTimeout(()=>{
 
-window.scrollTo({
+icon.remove();
 
-top:window.scrollY
-
-});
-
-},300);
-
-});
-
-
-/*==================================================
-    PERFORMANCE
-==================================================*/
-
-window.addEventListener("pageshow",()=>{
-
-updateCountdown();
-
-});
-
-
-/*==================================================
-    PREVENT DOUBLE TAP ZOOM
-==================================================*/
-
-let lastTouch=0;
-
-document.addEventListener("touchend",e=>{
-
-const now=Date.now();
-
-if(now-lastTouch<=300){
-
-e.preventDefault();
+},20000);
 
 }
 
-lastTouch=now;
+setInterval(floatingIcon,1800);
 
-},{passive:false});
+const iconStyle=document.createElement("style");
 
+iconStyle.innerHTML=`
+
+@keyframes iconFloat{
+
+0%{
+
+transform:
+
+translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:.8;
+
+}
+
+100%{
+
+transform:
+
+translateY(-120vh)
+
+rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(iconStyle);
 
 /*==================================================
-    CONSOLE MESSAGE
+PERFORMANCE
 ==================================================*/
 
-console.log("%c🕌 Shireen & Nazeer Wedding Website","font-size:18px;color:#7a0019;font-weight:bold");
+window.addEventListener(
 
-console.log("%cMay Allah bless this marriage with barakah. Ameen.","color:#b8860b");
+"touchstart",
 
+()=>{},
+
+{passive:true}
+
+);
+
+window.addEventListener(
+
+"wheel",
+
+()=>{},
+
+{passive:true}
+
+);
 
 /*==================================================
-    WEBSITE READY
+PREVENT IMAGE DRAG
 ==================================================*/
 
-document.documentElement.classList.add("loaded");
+document.querySelectorAll("img").forEach(img=>{
 
-console.log("✅ Production Website Loaded Successfully");
+img.setAttribute("draggable","false");
+
+});
+
+/*==================================================
+CONSOLE MESSAGE
+==================================================*/
+
+console.clear();
+
+console.log(
+
+"%c✨ Shireen ❤️ Nazeer Premium Wedding Website",
+
+"color:#d4af37;font-size:22px;font-weight:bold;"
+
+);
+
+console.log(
+
+"%cDesigned with ❤️",
+
+"color:white;font-size:14px;"
+
+);
+
+/*==================================================
+END OF SCRIPT
+VERSION 2.0
+==================================================*/
