@@ -1,238 +1,790 @@
+/* ===========================
+   SHIREEN & NAZEER
+   PREMIUM WEDDING WEBSITE
+=========================== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
+
 font-family:'Poppins',sans-serif;
-background:#fafafa;
+background:#faf8f5;
 color:#222;
-line-height:1.7;
 overflow-x:hidden;
+
 }
 
-.loading-screen{
+.container{
+
+width:90%;
+max-width:1200px;
+margin:auto;
+
+}
+
+#loader{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
 height:100vh;
+background:#fff;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-background:#ffffff;
-text-align:center;
+z-index:9999;
+
 }
 
-.bismillah{
-font-size:60px;
+.loader-content{
+
+text-align:center;
+
+}
+
+.loader-content h1{
+
+font-size:70px;
 color:#8b0000;
 margin-bottom:20px;
+
 }
 
-.loading-screen h2{
+.loader-content h2{
+
 font-family:'Cinzel',serif;
-font-size:28px;
-margin-bottom:10px;
+font-size:34px;
+
 }
 
-.loading-screen p{
+.loader-content p{
+
+margin-top:15px;
+color:#555;
 font-size:18px;
-color:#666;
+
 }
 
 .hero{
+
 height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url("assets/background.jpg");
+
+background-size:cover;
+background-position:center;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 text-align:center;
-background:linear-gradient(135deg,#8b0000,#000);
+
 color:white;
-position:relative;
+
 }
 
-.hero-content{
-position:relative;
-z-index:2;
+.hero-content h4{
+
+letter-spacing:4px;
+font-size:20px;
+margin-bottom:20px;
+
+}
+
+.hero-content h1{
+
+font-family:'Great Vibes',cursive;
+font-size:95px;
+font-weight:400;
+
+}
+
+.heart{
+
+font-size:45px;
+margin:20px 0;
+color:#ff2d55;
+
+}
+
+.hero-content p{
+
+font-size:22px;
+margin-top:10px;
+
+}
+
+.main-btn{
+
+display:inline-block;
+margin-top:40px;
+
+padding:16px 40px;
+
+background:#8b0000;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.main-btn:hover{
+
+background:#b30000;
+transform:scale(1.05);
+
+  /* ===========================
+   INVITATION SECTION
+=========================== */
+
+#invite{
+
+padding:100px 0;
+background:#fff;
+
+}
+
+.title{
+
+text-align:center;
+margin-bottom:50px;
+
+}
+
+.title h2{
+
+font-family:'Cinzel',serif;
+font-size:38px;
+color:#8b0000;
+
+}
+
+.host{
+
+text-align:center;
+font-size:22px;
+line-height:1.8;
+font-weight:600;
+margin-bottom:40px;
+
+}
+
+.invite-text{
+
+text-align:center;
+max-width:850px;
+margin:0 auto 60px;
+font-size:20px;
+line-height:1.9;
+color:#555;
+
 }
 
 .couple{
-font-family:'Great Vibes',cursive;
-font-size:70px;
-margin-bottom:20px;
-}
 
-.couple span{
-display:block;
-font-size:40px;
-margin:15px 0;
-}
-
-.subtitle{
-font-size:22px;
-letter-spacing:4px;
-text-transform:uppercase;
-}
-
-.invitation{
-padding:70px 20px;
-background:#ffffff;
-}
-
-.card{
-max-width:850px;
-margin:auto;
-background:#fff;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 35px rgba(0,0,0,.12);
 text-align:center;
-border:2px solid #8b0000;
+
 }
 
-.card h2{
-color:#8b0000;
-font-size:34px;
-margin-bottom:20px;
-font-family:'Cinzel',serif;
-}
+.couple h1{
 
-.card p{
-font-size:18px;
-margin-bottom:18px;
-}
-
-.names{
-font-size:60px;
 font-family:'Great Vibes',cursive;
+font-size:85px;
 color:#8b0000;
+font-weight:400;
+
+}
+
+.couple h3{
+
 margin:25px 0;
-}
-
-.names span{
-display:block;
-font-size:24px;
-font-family:'Poppins',sans-serif;
-color:#222;
-margin:10px 0;
-}
-
-.parents{
-font-size:18px;
-color:#555;
-}
-
-.event-details{
-padding:70px 20px;
-background:#f7f7f7;
-text-align:center;
-}
-
-.event-details h2{
 font-size:34px;
-color:#8b0000;
-margin-bottom:40px;
 font-family:'Cinzel',serif;
+color:#555;
+
 }
 
-.detail-box{
-background:#fff;
-padding:25px;
-margin:20px auto;
-max-width:650px;
-border-radius:15px;
-box-shadow:0 6px 20px rgba(0,0,0,.08);
+.couple p{
+
+margin-top:20px;
+font-size:20px;
+line-height:1.8;
+
 }
 
-.detail-box h3{
-margin-bottom:10px;
+/* ===========================
+   NIKAH SECTION
+=========================== */
+
+.nikah-section{
+
+padding:100px 0;
+background:#faf6ef;
+
+}
+
+.section-title{
+
+text-align:center;
+font-family:'Cinzel',serif;
+font-size:36px;
+margin-bottom:60px;
 color:#8b0000;
+
 }
 
-.buttons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
-margin-top:30px;
+.info-card{
+
+background:#fff;
+padding:30px;
+margin-bottom:30px;
+border-radius:18px;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
+
 }
 
-.buttons a{
+.info-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.info-card h3{
+
+font-size:28px;
+margin-bottom:15px;
+color:#8b0000;
+
+}
+
+.info-card p{
+
+font-size:20px;
+line-height:1.8;
+
+}
+
+.button-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:40px;
+
+}
+
+.btn{
+
+display:block;
+text-align:center;
 background:#8b0000;
 color:#fff;
 text-decoration:none;
-padding:14px 22px;
-border-radius:10px;
+padding:18px;
+border-radius:50px;
+font-size:18px;
 font-weight:600;
 transition:.3s;
+
 }
 
-.buttons a:hover{
-background:#600000;
+.btn:hover{
+
+background:#b30000;
+transform:scale(1.04);
+
 }
 
-.blessing{
+  /* ===========================
+   DUA SECTION
+=========================== */
+
+.dua-section{
+
+padding:100px 20px;
+background:#fff;
+text-align:center;
+
+}
+
+.dua-section h2{
+
+font-family:'Cinzel',serif;
+font-size:42px;
+color:#8b0000;
+margin-bottom:25px;
+
+}
+
+.dua-section p{
+
+max-width:850px;
+margin:auto;
+font-size:20px;
+line-height:1.9;
+color:#555;
+
+}
+
+/* ===========================
+   INVITATION CARD
+=========================== */
+
+.card-section{
+
+padding:100px 20px;
+background:#faf6ef;
+text-align:center;
+
+}
+
+.card-section h2{
+
+font-family:'Cinzel',serif;
+font-size:40px;
+margin-bottom:20px;
+color:#8b0000;
+
+}
+
+.card-section p{
+
+font-size:18px;
+color:#666;
+margin-bottom:40px;
+
+}
+
+.invite-card{
+
+width:100%;
+max-width:500px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.18);
+transition:.4s;
+
+}
+
+.invite-card:hover{
+
+transform:scale(1.03);
+
+}
+
+/* ===========================
+   ENGLISH & KANNADA
+=========================== */
+
+.english-section,
+.kannada-section{
+
+padding:90px 20px;
+text-align:center;
+background:white;
+
+}
+
+.kannada-section{
+
+background:#faf6ef;
+
+}
+
+.english-section h2,
+.kannada-section h2{
+
+font-family:'Cinzel',serif;
+font-size:38px;
+color:#8b0000;
+margin-bottom:30px;
+
+}
+
+.english-section h1,
+.kannada-section h1{
+
+font-family:'Great Vibes',cursive;
+font-size:70px;
+color:#8b0000;
+margin:20px 0;
+
+}
+
+.english-section h3,
+.kannada-section h3{
+
+font-size:28px;
+margin:20px 0;
+
+}
+
+.english-section p,
+.kannada-section p{
+
+font-size:20px;
+line-height:1.9;
+max-width:900px;
+margin:auto;
+
+}
+
+/* ===========================
+   SHARE BUTTON
+=========================== */
+
+.share-section{
+
 padding:70px 20px;
 text-align:center;
-background:#ffffff;
+background:white;
+
 }
 
-.blessing h2{
-font-size:32px;
-color:#8b0000;
-margin-bottom:15px;
-font-family:'Cinzel',serif;
+#shareButton{
+
+padding:18px 45px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:#8b0000;
+color:white;
+cursor:pointer;
+transition:.3s;
+
 }
 
-.blessing h3{
-font-size:26px;
-margin-bottom:20px;
+#shareButton:hover{
+
+background:#b30000;
+transform:translateY(-3px);
+
 }
 
-.blessing p{
-font-size:18px;
-color:#555;
-max-width:700px;
-margin:auto;
-}
+/* ===========================
+   FOOTER
+=========================== */
 
 footer{
+
 background:#111;
-color:#fff;
+color:white;
+padding:70px 20px;
 text-align:center;
-padding:25px;
-font-size:16px;
+
+}
+
+footer h2{
+
+font-family:'Cinzel',serif;
+font-size:36px;
+margin-bottom:20px;
+
+}
+
+footer h3{
+
+margin-top:25px;
+color:#d4af37;
+letter-spacing:2px;
+
+}
+
+footer p{
+
+font-size:18px;
+line-height:1.8;
+color:#ddd;
+
+}
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes zoomIn{
+
+0%{
+opacity:0;
+transform:scale(.9);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+.hero-content{
+
+animation:zoomIn 1.3s ease;
+
+}
+
+.title,
+.host,
+.invite-text,
+.couple,
+.section-title,
+.info-card,
+.dua-section,
+.card-section,
+.english-section,
+.kannada-section,
+.share-section,
+footer{
+
+animation:fadeUp 1s ease;
+
+}
+
+/* ===========================
+   IMAGE EFFECTS
+=========================== */
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+.invite-card{
+
+margin:0 auto;
+
+}
+
+.invite-card:hover{
+
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#f1f1f1;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#8b0000;
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#b30000;
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:992px){
+
+.hero-content h1{
+
+font-size:70px;
+
+}
+
+.hero-content h4{
+
+font-size:18px;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+.title h2{
+
+font-size:30px;
+
+}
+
+.couple h1{
+
+font-size:65px;
+
+}
+
+.english-section h1,
+.kannada-section h1{
+
+font-size:60px;
+
+}
+
 }
 
 @media(max-width:768px){
 
-.couple{
-font-size:50px;
+.hero{
+
+padding:30px;
+
 }
 
-.names{
-font-size:42px;
+.hero-content h1{
+
+font-size:52px;
+
 }
 
-.card{
-padding:25px;
+.hero-content p{
+
+font-size:18px;
+
 }
 
-.card h2,
-.event-details h2,
-.blessing h2{
+.main-btn{
+
+padding:14px 30px;
+
+}
+
+.title h2,
+.section-title{
+
 font-size:26px;
+
 }
 
-.buttons{
-flex-direction:column;
+.host,
+.invite-text,
+.info-card p,
+.dua-section p,
+.english-section p,
+.kannada-section p{
+
+font-size:17px;
+
 }
 
-.buttons a{
+.couple h1{
+
+font-size:55px;
+
+}
+
+.couple h3{
+
+font-size:24px;
+
+}
+
+.english-section h1,
+.kannada-section h1{
+
+font-size:50px;
+
+}
+
+.english-section h2,
+.kannada-section h2{
+
+font-size:28px;
+
+}
+
+.btn{
+
+font-size:16px;
+padding:15px;
+
+}
+
+#shareButton{
+
 width:100%;
+
 }
 
-.detail-box{
-margin:15px;
+}
+
+@media(max-width:480px){
+
+.hero-content h1{
+
+font-size:42px;
+
+}
+
+.loader-content h1{
+
+font-size:50px;
+
+}
+
+.loader-content h2{
+
+font-size:24px;
+
+}
+
+footer h2{
+
+font-size:28px;
+
+}
+
+footer h3{
+
+font-size:18px;
+
 }
 
 }
