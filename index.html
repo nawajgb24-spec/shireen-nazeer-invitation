@@ -1,9 +1,3 @@
-<!-- ==================================================
-SHIREEN ❤️ NAZEER
-PREMIUM ISLAMIC WEDDING INVITATION
-INDEX.HTML
-PART 1
-================================================== -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,85 +18,68 @@ content="Official Wedding Invitation of Shireen & Nazeer">
 
 <meta
 name="theme-color"
-content="#0b0b0b">
+content="#050505">
 
-<link
-rel="icon"
-href="assets/favicon.png">
-
-<link
-rel="preconnect"
+<link rel="preconnect"
 href="https://fonts.googleapis.com">
 
-<link
-rel="preconnect"
+<link rel="preconnect"
 href="https://fonts.gstatic.com"
 crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
 rel="stylesheet">
 
 <link
 rel="stylesheet"
 href="style.css">
 
+<link
+rel="icon"
+href="favicon.ico">
+
 </head>
 
 <body>
 
 <!--==============================
-LOADER
+BACKGROUND
 ==============================-->
 
-<div class="loader">
+<div id="sky"></div>
 
-<div class="loader-ring"></div>
+<div id="stars-back"></div>
 
-<div class="loader-text">
+<div id="stars-middle"></div>
 
-Shireen ❤️ Nazeer
+<div id="stars-front"></div>
 
-</div>
+<div id="gold-particles"></div>
 
-</div>
+<div id="shooting-stars"></div>
+
+<div id="moon-glow"></div>
+
+<div id="moon"></div>
+
+<div id="mosque"></div>
 
 <!--==============================
-PREMIUM BACKGROUND
+IMAGE VIEWER
 ==============================-->
 
-<div class="night-sky"></div>
+<div
+class="lightbox"
+id="lightbox">
 
-<div class="stars"></div>
+<span id="closeLightbox">
 
-<div class="gold-particles"></div>
+&times;
 
-<div class="shooting-stars">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-<div class="moon-glow"></div>
-
-<div class="moon"></div>
-
-<!--==============================
-IMAGE MODAL
-==============================-->
-
-<div class="image-modal">
-
-<span class="close">&times;</span>
+</span>
 
 <img
+id="lightboxImage"
 src=""
 alt="Preview">
 
@@ -112,47 +89,54 @@ alt="Preview">
 BACK TO TOP
 ==============================-->
 
-<div class="back-to-top">
+<button
+id="topButton">
 
 ↑
 
-</div>
+</button>
 
 <!--==============================
 HEADER
 ==============================-->
 
-<header>
+<header id="header">
 
-<nav class="navbar">
+<div class="container">
 
-<a
-href="#home"
-class="logo">
+<div class="logo">
 
 Shireen
-<span>❤</span>
+
+<span>
+
+❤
+
+</span>
+
 Nazeer
 
-</a>
-
-<div class="menu-toggle">
-
-<span></span>
-<span></span>
-<span></span>
-
 </div>
+
+<nav id="nav">
 
 <ul>
 
 <li>
 
-<a
-href="#home"
-class="active">
+<a href="#home">
 
 Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#quran">
+
+Quran
 
 </a>
 
@@ -170,29 +154,19 @@ Couple
 
 <li>
 
-<a href="#nikah">
-
-Nikah
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#timeline">
-
-Timeline
-
-</a>
-
-</li>
-
-<li>
-
 <a href="#parents">
 
 Parents
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#details">
+
+Details
 
 </a>
 
@@ -232,367 +206,71 @@ Contact
 
 </nav>
 
+<div id="menuButton">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+</div>
+
 </header>
 
 <!--==============================
-HERO
+HOME
 ==============================-->
 
 <section
-id="home"
-class="hero">
+id="home">
 
-<div class="hero-overlay"></div>
+<div class="container hero">
 
-<div class="mosque-bg"></div>
-
-<div class="container">
-
-<div class="hero-content fade-up">
-
-<h4>
-
-بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-
-</h4>
-
-<div class="hero-divider">
-
-✦ ✦ ✦
-
-</div>
-
-<h1>
-
-Shireen
-
-<br>
-
-❤
-
-<br>
-
-Nazeer
-
-</h1>
-
-<p class="hero-subtitle">
-
-With the blessings of Almighty Allah,
-our families warmly invite you to
-grace the Nikah ceremony with your
-presence and prayers.
-
-</p>
-
-<a
-href="#nikah"
-class="hero-btn">
-
-View Invitation
-
-</a>
-
-<!-- LIVE COUNTDOWN -->
-
-<div id="countdown">
-
-<div class="count-box">
-
-<span>00</span>
-
-<small>Days</small>
-
-</div>
-
-<div class="count-box">
-
-<span>00</span>
-
-<small>Hours</small>
-
-</div>
-
-<div class="count-box">
-
-<span>00</span>
-
-<small>Minutes</small>
-
-</div>
-
-<div class="count-box">
-
-<span>00</span>
-
-<small>Seconds</small>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==============================
-PART 2 STARTS FROM HERE
-==============================-->
-
-    <!--==============================
-BISMILLAH & QURAN
-==============================-->
-
-<section
-id="bismillah">
-
-<div class="container">
-
-<div class="section-title fade-up">
-
-<h2>
-
-In The Name Of Allah
-
-</h2>
-
-<p>
-
-The Most Compassionate • The Most Merciful
-
-</p>
-
-</div>
-
-<div class="quran-card fade-up">
+<div class="hero-box">
 
 <div class="arabic">
 
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+﷽
 
 </div>
 
-<p class="translation">
+<h3>
 
-"In the name of Allah, the Entirely Merciful,
-the Especially Merciful."
+Together With Our Families
 
-</p>
-
-<p class="reference">
-
-Holy Quran — Surah Al-Fatihah (1:1)
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==============================
-COUPLE
-==============================-->
-
-<section
-id="couple">
-
-<div class="container">
-
-<div class="section-title fade-up">
-
-<h2>
-
-The Blessed Couple
-
-</h2>
-
-<p>
-
-Together with our families,
-we request the honour of your
-presence on this joyful occasion.
-
-</p>
-
-</div>
-
-<div class="couple-card">
-
-<div class="person glass-card fade-up">
-
-<div class="person-icon">
-
-👰
-
-</div>
+</h3>
 
 <h1>
 
 Shireen
 
-</h1>
+<span>
 
-<h3>
+❤
 
-Beloved Daughter Of
-
-</h3>
-
-<p>
-
-Janab Gulab Bagawan
-
-<br>
-
-Manur
-
-<br>
-
-Tq : Devar Hippargi
-
-</p>
-
-</div>
-
-<div class="nikah-symbol">
-
-☪
-
-</div>
-
-<div class="person glass-card fade-up">
-
-<div class="person-icon">
-
-🤵
-
-</div>
-
-<h1>
+</span>
 
 Nazeer
 
 </h1>
 
-<h3>
-
-Beloved Son Of
-
-</h3>
-
 <p>
 
-Janab Mahibubsab D. Bagawan
-
-<br>
-
-Devur
-
-<br>
-
-Tq : Devar Hippargi
+Request the Honour of your Presence
+at our Nikah Ceremony.
 
 </p>
 
-</div>
+<div class="hero-date">
+
+09 August 2026
 
 </div>
 
-</div>
-
-</section>
-
-<!--==============================
-NIKAH DETAILS
-==============================-->
-
-<section
-id="nikah">
-
-<div class="container">
-
-<div class="section-title fade-up">
-
-<h2>
-
-Nikah Ceremony
-
-</h2>
-
-<p>
-
-Your presence and duas
-will make our day even more special.
-
-</p>
-
-</div>
-
-<div class="nikah-grid">
-
-<div class="detail-box fade-up">
-
-<div class="icon">
-
-📅
-
-</div>
-
-<h3>
-
-Date
-
-</h3>
-
-<p>
-
-23 August 2026
-
-</p>
-
-</div>
-
-<div class="detail-box fade-up">
-
-<div class="icon">
-
-🕚
-
-</div>
-
-<h3>
-
-Time
-
-</h3>
-
-<p>
-
-11:00 AM
-
-</p>
-
-</div>
-
-<div class="detail-box fade-up">
-
-<div class="icon">
-
-🕌
-
-</div>
-
-<h3>
-
-Venue
-
-</h3>
-
-<p>
+<div class="hero-location">
 
 Hundekar Marriage Hall
 
@@ -604,9 +282,19 @@ Talikot Road
 
 Devar Hippargi
 
-</p>
+<br>
+
+Dist. Vijayapur
 
 </div>
+
+<a
+href="#details"
+class="heroButton">
+
+View Invitation
+
+</a>
 
 </div>
 
@@ -615,115 +303,212 @@ Devar Hippargi
 </section>
 
 <!--==============================
-PART 3 STARTS FROM HERE
-==============================-->
-
-    <!--==============================
-TIMELINE
+BISMILLAH
 ==============================-->
 
 <section
-id="timeline">
+id="bismillah">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
-Wedding Timeline
+In The Name Of Allah
+
+</h2>
+
+</div>
+
+<div class="glass-card">
+
+<p class="bismillah">
+
+بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+
+</p>
+
+<p>
+
+In the name of Allah,
+the Most Compassionate,
+the Most Merciful.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==============================
+QURAN
+==============================-->
+
+<section
+id="quran">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Quran
+
+</h2>
+
+</div>
+
+<div class="glass-card">
+
+<div class="arabicAyah">
+
+وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ
+مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+لِتَسْكُنُوا إِلَيْهَا
+
+</div>
+
+<p>
+
+"And one of His signs is that He
+created for you spouses from among
+yourselves so that you may find
+tranquility in them."
+
+</p>
+
+<p>
+
+— Surah Ar-Rum (30:21)
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==============================
+PART 2
+==============================-->
+
+    <!--==============================
+COUPLE
+==============================-->
+
+<section id="couple">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+The Beautiful Couple
 
 </h2>
 
 <p>
 
-A beautiful journey begins with the blessings
-of Allah and the prayers of loved ones.
+With the blessings of Allah Almighty
+and the love of our families.
 
 </p>
 
 </div>
 
-<div class="timeline">
+<div class="couple-grid">
 
-<div class="timeline-item fade-up">
+<div class="person-card">
 
-<div class="timeline-time">
+<div class="person-icon">
 
-10:00 AM
+👰
 
 </div>
-
-<div class="timeline-content">
 
 <h3>
 
-Guests Arrival
+Bride
 
 </h3>
 
+<h2>
+
+Shireen
+
+</h2>
+
 <p>
 
-Guests are warmly welcomed with love,
-respect and refreshments.
+Beloved Daughter of
 
 </p>
 
-</div>
+<h4>
+
+Janab Gulab Bagawan
+
+</h4>
+
+<span>
+
+Manur
+
+<br>
+
+Tq. Devar Hippargi
+
+</span>
 
 </div>
 
-<div class="timeline-item fade-up">
+<div class="person-card">
 
-<div class="timeline-time">
+<div class="person-icon">
 
-11:00 AM
+🤵
 
 </div>
-
-<div class="timeline-content">
 
 <h3>
 
-Nikah Ceremony
+Groom
 
 </h3>
 
-<p>
+<h2>
 
-The sacred Nikah ceremony begins
-with the blessings of Almighty Allah.
+Nazeer
 
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item fade-up">
-
-<div class="timeline-time">
-
-12:30 PM
-
-</div>
-
-<div class="timeline-content">
-
-<h3>
-
-Lunch
-
-</h3>
+</h2>
 
 <p>
 
-Join us for a delicious lunch and
-celebrate this joyful occasion together.
+Beloved Son of
 
 </p>
 
-</div>
+<h4>
+
+Janab Mahibubsab D. Bagawan
+
+</h4>
+
+<span>
+
+Devur
+
+<br>
+
+Tq. Devar Hippargi
+
+</span>
 
 </div>
 
@@ -737,37 +522,23 @@ celebrate this joyful occasion together.
 PARENTS
 ==============================-->
 
-<section
-id="parents">
+<section id="parents">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
-With Best Compliments From
+Our Families
 
 </h2>
 
-<p>
-
-Our families warmly welcome you
-to celebrate this memorable occasion.
-
-</p>
-
 </div>
 
-<div class="parents-grid">
+<div class="family-grid">
 
-<div class="glass-card fade-up">
-
-<div class="parent-icon">
-
-👨‍👩‍👧
-
-</div>
+<div class="glass-card family-card">
 
 <h3>
 
@@ -785,21 +556,17 @@ Janab Gulab Bagawan
 
 Manur
 
-<br>
+</p>
 
-Tq : Devar Hippargi
+<p>
+
+Tq. Devar Hippargi
 
 </p>
 
 </div>
 
-<div class="glass-card fade-up">
-
-<div class="parent-icon">
-
-👨‍👩‍👦
-
-</div>
+<div class="glass-card family-card">
 
 <h3>
 
@@ -817,9 +584,103 @@ Janab Mahibubsab D. Bagawan
 
 Devur
 
-<br>
+</p>
 
-Tq : Devar Hippargi
+<p>
+
+Tq. Devar Hippargi
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==============================
+WEDDING DETAILS
+==============================-->
+
+<section id="details">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Nikah Details
+
+</h2>
+
+</div>
+
+<div class="details-grid">
+
+<div class="detail-card">
+
+<div class="detail-icon">
+
+📅
+
+</div>
+
+<h3>
+
+Date
+
+</h3>
+
+<p>
+
+09 August 2026
+
+</p>
+
+</div>
+
+<div class="detail-card">
+
+<div class="detail-icon">
+
+🕌
+
+</div>
+
+<h3>
+
+Ceremony
+
+</h3>
+
+<p>
+
+Nikah Ceremony
+
+</p>
+
+</div>
+
+<div class="detail-card">
+
+<div class="detail-icon">
+
+🕰
+
+</div>
+
+<h3>
+
+Time
+
+</h3>
+
+<p>
+
+11:00 AM
 
 </p>
 
@@ -835,12 +696,11 @@ Tq : Devar Hippargi
 VENUE
 ==============================-->
 
-<section
-id="venue">
+<section id="venue">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
@@ -848,22 +708,9 @@ Wedding Venue
 
 </h2>
 
-<p>
-
-We look forward to celebrating this
-special day with you.
-
-</p>
-
 </div>
 
-<div class="venue-card glass-card fade-up">
-
-<div class="venue-icon">
-
-📍
-
-</div>
+<div class="glass-card venue-card">
 
 <h3>
 
@@ -886,24 +733,25 @@ Dist. Vijayapur
 </p>
 
 <a
-class="calendar-btn open-map"
-href="https://maps.app.goo.gl/8X64YJ5tFzhLU9hC9"
-target="_blank">
+class="mapButton"
+target="_blank"
+href="https://maps.app.goo.gl/8X64YJ5tFzhLU9hC9">
 
-Open In Google Maps
+Open Google Maps
 
 </a>
 
-</div>
-
-<div class="map-box fade-up">
+<div class="map-frame">
 
 <iframe
-src="https://www.google.com/maps?q=Hundekar%20Marriage%20Hall%20Devar%20Hippargi&output=embed"
 loading="lazy"
-allowfullscreen>
+allowfullscreen
+referrerpolicy="no-referrer-when-downgrade"
+src="https://www.google.com/maps?q=Hundekar+Marriage+Hall+Devar+Hippargi&output=embed">
 
 </iframe>
+
+</div>
 
 </div>
 
@@ -912,19 +760,18 @@ allowfullscreen>
 </section>
 
 <!--==============================
-PART 4 STARTS FROM HERE
+PART 3
 ==============================-->
 
     <!--==============================
 GALLERY
 ==============================-->
 
-<section
-id="gallery">
+<section id="gallery">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
@@ -934,8 +781,7 @@ Wedding Gallery
 
 <p>
 
-A few beautiful moments and invitation
-highlights prepared with love.
+A few beautiful memories and invitation highlights.
 
 </p>
 
@@ -943,51 +789,51 @@ highlights prepared with love.
 
 <div class="gallery-grid">
 
-<div class="gallery-item fade-up">
+<div class="gallery-item">
 
 <img
-src="assets/gallery/gallery1.jpg"
-alt="Gallery 1">
+src="assets/images/gallery/gallery1.webp"
+alt="Gallery Image 1">
 
 </div>
 
-<div class="gallery-item fade-up">
+<div class="gallery-item">
 
 <img
-src="assets/gallery/gallery2.jpg"
-alt="Gallery 2">
+src="assets/images/gallery/gallery2.webp"
+alt="Gallery Image 2">
 
 </div>
 
-<div class="gallery-item fade-up">
+<div class="gallery-item">
 
 <img
-src="assets/gallery/gallery3.jpg"
-alt="Gallery 3">
+src="assets/images/gallery/gallery3.webp"
+alt="Gallery Image 3">
 
 </div>
 
-<div class="gallery-item fade-up">
+<div class="gallery-item">
 
 <img
-src="assets/gallery/gallery4.jpg"
-alt="Gallery 4">
+src="assets/images/gallery/gallery4.webp"
+alt="Gallery Image 4">
 
 </div>
 
-<div class="gallery-item fade-up">
+<div class="gallery-item">
 
 <img
-src="assets/gallery/gallery5.jpg"
-alt="Gallery 5">
+src="assets/images/gallery/gallery5.webp"
+alt="Gallery Image 5">
 
 </div>
 
-<div class="gallery-item fade-up">
+<div class="gallery-item">
 
 <img
-src="assets/gallery/gallery6.jpg"
-alt="Gallery 6">
+src="assets/images/gallery/gallery6.webp"
+alt="Gallery Image 6">
 
 </div>
 
@@ -1001,34 +847,25 @@ alt="Gallery 6">
 INVITATION CARD
 ==============================-->
 
-<section
-id="invitation-card">
+<section id="invitation">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
-Official Invitation Card
+Official Invitation
 
 </h2>
 
-<p>
-
-Kindly accept our heartfelt invitation
-and bless the couple with your prayers.
-
-</p>
-
 </div>
 
-<div class="card-preview fade-up">
+<div class="glass-card invitation-card">
 
 <img
-class="invitation-image"
-src="assets/invitation-card.jpg"
-alt="Wedding Invitation">
+src="assets/images/invitation-card.webp"
+alt="Invitation Card">
 
 </div>
 
@@ -1040,43 +877,32 @@ alt="Wedding Invitation">
 QR CODE
 ==============================-->
 
-<section
-id="qr">
+<section id="locationQR">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
-Location QR Code
+Scan For Directions
 
 </h2>
 
-<p>
-
-Scan using your mobile phone to
-navigate directly to the venue.
-
-</p>
-
 </div>
 
-<div class="qr-wrapper">
-
-<div class="qr-card fade-up">
+<div class="glass-card qr-card">
 
 <img
-src="assets/qr-code.png"
-alt="Venue QR Code">
+src="assets/images/qr-code.webp"
+alt="Google Maps QR">
 
 <p>
 
-Scan & Open Google Maps
+Scan this QR Code to open
+Google Maps instantly.
 
 </p>
-
-</div>
 
 </div>
 
@@ -1088,49 +914,41 @@ Scan & Open Google Maps
 CONTACT
 ==============================-->
 
-<section
-id="contact">
+<section id="contact">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
-Contact Us
+Contact
 
 </h2>
 
-<p>
-
-For any assistance,
-please contact us.
-
-</p>
-
 </div>
 
-<div class="contact-buttons fade-up">
+<div class="contact-grid">
 
 <a
-class="contact-btn"
-href="tel:9740379699">
+href="tel:9740379699"
+class="contactButton">
 
 📞 9740379699
 
 </a>
 
 <a
-class="contact-btn"
-href="tel:9731615701">
+href="tel:9731615701"
+class="contactButton">
 
 📞 9731615701
 
 </a>
 
 <a
-class="contact-btn"
-href="tel:8660330610">
+href="tel:8660330610"
+class="contactButton">
 
 📞 8660330610
 
@@ -1138,10 +956,9 @@ href="tel:8660330610">
 
 </div>
 
-<div class="share-box fade-up">
+<div class="shareArea">
 
-<button
-class="share-btn">
+<button id="shareButton">
 
 Share Invitation
 
@@ -1154,18 +971,14 @@ Share Invitation
 </section>
 
 <!--==============================
-PART 5 STARTS FROM HERE
-==============================-->
-    <!--==============================
 DUA
 ==============================-->
 
-<section
-id="dua">
+<section id="dua">
 
 <div class="container">
 
-<div class="section-title fade-up">
+<div class="section-title">
 
 <h2>
 
@@ -1173,28 +986,24 @@ Please Remember Us In Your Duas
 
 </h2>
 
+</div>
+
+<div class="glass-card">
+
+<div class="arabicAyah">
+
+بَارَكَ اللَّهُ لَكُمَا
+وَبَارَكَ عَلَيْكُمَا
+وَجَمَعَ بَيْنَكُمَا
+فِي خَيْرٍ
+
+</div>
+
 <p>
 
-Your prayers are the greatest gift
-you can give us.
-
-</p>
-
-</div>
-
-<div class="dua-card fade-up">
-
-<div class="dua-arabic">
-
-بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
-
-</div>
-
-<p class="dua-translation">
-
-"May Allah bless both of you,
+May Allah bless both of you,
 shower His blessings upon you,
-and unite you both in goodness."
+and unite you in goodness.
 
 </p>
 
@@ -1205,29 +1014,41 @@ and unite you both in goodness."
 </section>
 
 <!--==============================
+PART 4
+==============================-->
+
+    <!--==============================
 THANK YOU
 ==============================-->
 
-<section
-id="thankyou">
+<section id="thankyou">
 
 <div class="container">
 
-<h2 class="fade-up">
+<div class="glass-card thankyou-card">
+
+<h2>
 
 Thank You
 
 </h2>
 
-<p class="fade-up">
+<p>
 
-Your presence will make our happiness complete.
-
-We sincerely request your gracious presence,
-warm wishes, and heartfelt duas as we begin
-this beautiful journey together.
+Your presence will be the greatest blessing
+for us as we begin this beautiful journey
+together.
 
 </p>
+
+<p>
+
+We sincerely request your gracious presence,
+warm wishes and heartfelt duas.
+
+</p>
+
+</div>
 
 </div>
 
@@ -1239,30 +1060,95 @@ FOOTER
 
 <footer>
 
+<div class="container">
+
+<div class="footerLogo">
+
+Shireen
+
+<span>
+
+❤
+
+</span>
+
+Nazeer
+
+</div>
+
 <p>
 
-© <span class="current-year"></span>
-
-Shireen ❤️ Nazeer
-
-<br>
-
-With Love & Blessings From Both Families
+With the Blessings of Allah Almighty
 
 </p>
+
+<p>
+
+Together With Our Families
+
+</p>
+
+<div class="footerContacts">
+
+<a href="tel:9740379699">
+
+9740379699
+
+</a>
+
+<span>
+
+|
+
+</span>
+
+<a href="tel:9731615701">
+
+9731615701
+
+</a>
+
+<span>
+
+|
+
+</span>
+
+<a href="tel:8660330610">
+
+8660330610
+
+</a>
+
+</div>
+
+<p class="copyright">
+
+© <span id="year"></span>
+
+Shireen & Nazeer
+
+All Rights Reserved
+
+</p>
+
+</div>
 
 </footer>
 
 <!--==============================
-SCRIPT
+SCRIPTS
 ==============================-->
 
-<script src="script.js"></script>
+<script
+src="script.js">
+
+</script>
 
 </body>
 
 </html>
 
-<!--==================================================
-INDEX.HTML COMPLETED
-==================================================-->
+<!--==========================================
+INDEX.HTML COMPLETE
+===========================================-->
