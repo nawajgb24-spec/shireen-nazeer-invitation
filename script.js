@@ -1,6 +1,6 @@
 /*==================================================
 SHIREEN ❤️ NAZEER
-PREMIUM ISLAMIC WEDDING INVITATION
+PREMIUM WEDDING INVITATION
 SCRIPT.JS
 PART 1
 ==================================================*/
@@ -8,38 +8,41 @@ PART 1
 "use strict";
 
 /*==============================
-SELECTORS
+ELEMENTS
 ==============================*/
 
-const loader=document.querySelector(".loader");
+const header=document.getElementById("header");
 
-const header=document.querySelector("header");
+const nav=document.getElementById("nav");
 
-const menuToggle=document.querySelector(".menu-toggle");
+const menuButton=document.getElementById("menuButton");
 
-const navLinks=document.querySelector(".navbar ul");
+const topButton=document.getElementById("topButton");
 
-const navItems=document.querySelectorAll(".navbar ul li a");
+const shareButton=document.getElementById("shareButton");
 
-const backToTop=document.querySelector(".back-to-top");
+const year=document.getElementById("year");
 
-const imageModal=document.querySelector(".image-modal");
+const lightbox=document.getElementById("lightbox");
 
-const modalImage=imageModal?
-imageModal.querySelector("img"):null;
+const lightboxImage=document.getElementById("lightboxImage");
+
+const closeLightbox=document.getElementById("closeLightbox");
 
 const galleryImages=document.querySelectorAll(".gallery-item img");
 
-const shareButton=document.querySelector(".share-btn");
+const starsBack=document.getElementById("stars-back");
 
-const countdown=document.getElementById("countdown");
+const starsMiddle=document.getElementById("stars-middle");
 
-const year=document.querySelector(".current-year");
+const starsFront=document.getElementById("stars-front");
 
-const goldParticles=document.querySelector(".gold-particles");
+const particles=document.getElementById("gold-particles");
+
+const shooting=document.getElementById("shooting-stars");
 
 /*==============================
-CURRENT YEAR
+YEAR
 ==============================*/
 
 if(year){
@@ -49,34 +52,10 @@ year.textContent=new Date().getFullYear();
 }
 
 /*==============================
-LOADER
-==============================*/
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-if(loader){
-
-loader.style.opacity="0";
-
-loader.style.visibility="hidden";
-
-loader.style.pointerEvents="none";
-
-}
-
-},1200);
-
-});
-
-/*==============================
-HEADER EFFECT
+HEADER
 ==============================*/
 
 window.addEventListener("scroll",()=>{
-
-if(!header) return;
 
 if(window.scrollY>50){
 
@@ -91,28 +70,24 @@ header.classList.remove("scrolled");
 });
 
 /*==============================
-BACK TO TOP
+TOP BUTTON
 ==============================*/
 
 window.addEventListener("scroll",()=>{
 
-if(!backToTop) return;
+if(window.scrollY>500){
 
-if(window.scrollY>600){
-
-backToTop.classList.add("show");
+topButton.classList.add("show");
 
 }else{
 
-backToTop.classList.remove("show");
+topButton.classList.remove("show");
 
 }
 
 });
 
-if(backToTop){
-
-backToTop.addEventListener("click",()=>{
+topButton.addEventListener("click",()=>{
 
 window.scrollTo({
 
@@ -124,235 +99,61 @@ behavior:"smooth"
 
 });
 
-}
-
 /*==============================
 MOBILE MENU
 ==============================*/
 
-if(menuToggle && navLinks){
+menuButton.addEventListener("click",()=>{
 
-menuToggle.addEventListener("click",()=>{
-
-navLinks.classList.toggle("open");
-
-menuToggle.classList.toggle("active");
+nav.classList.toggle("active");
 
 });
 
-}
-
-navItems.forEach(link=>{
+document.querySelectorAll("#nav a").forEach(link=>{
 
 link.addEventListener("click",()=>{
 
-if(menuToggle && navLinks){
-
-navLinks.classList.remove("open");
-
-menuToggle.classList.remove("active");
-
-}
+nav.classList.remove("active");
 
 });
 
 });
 
 /*==============================
-SMOOTH ACTIVE NAVIGATION
+LIGHTBOX
 ==============================*/
 
-const sections=document.querySelectorAll("section");
+galleryImages.forEach(img=>{
 
-window.addEventListener("scroll",()=>{
+img.addEventListener("click",()=>{
 
-let current="";
+lightbox.classList.add("active");
 
-sections.forEach(section=>{
-
-const top=section.offsetTop-140;
-
-const height=section.offsetHeight;
-
-if(window.scrollY>=top){
-
-current=section.getAttribute("id");
-
-}
+lightboxImage.src=img.src;
 
 });
 
-navItems.forEach(link=>{
+});
 
-link.classList.remove("active");
+closeLightbox.addEventListener("click",()=>{
 
-const href=link.getAttribute("href");
-
-if(href===`#${current}`){
-
-link.classList.add("active");
-
-}
+lightbox.classList.remove("active");
 
 });
+
+lightbox.addEventListener("click",(e)=>{
+
+if(e.target===lightbox){
+
+lightbox.classList.remove("active");
+
+}
 
 });
 
 /*==============================
-COUNTDOWN
+PART 2
 ==============================*/
-
-/*
-IMPORTANT
-
-Replace the date below with your
-actual Nikah date and time.
-
-Example:
-2026-12-25T11:00:00
-
-*/
-
-/*==============================
-COUNTDOWN
-==============================*/
-
-const countdown = document.getElementById("countdown");
-
-// Wedding Date
-const weddingDate = new Date("2026-08-09T11:00:00").getTime();
-
-function updateCountdown() {
-
-    if (!countdown) return;
-
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if (distance <= 0) {
-
-        countdown.innerHTML = `
-            <div class="count-box">
-                <h2>🎉</h2>
-                <span>Wedding Day Mubarak</span>
-            </div>
-        `;
-
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-    );
-
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000 * 60)) /
-        1000
-    );
-
-    countdown.innerHTML = `
-        <div class="count-box">
-            <h2>${String(days).padStart(2, "0")}</h2>
-            <span>Days</span>
-        </div>
-
-        <div class="count-box">
-            <h2>${String(hours).padStart(2, "0")}</h2>
-            <span>Hours</span>
-        </div>
-
-        <div class="count-box">
-            <h2>${String(minutes).padStart(2, "0")}</h2>
-            <span>Minutes</span>
-        </div>
-
-        <div class="count-box">
-            <h2>${String(seconds).padStart(2, "0")}</h2>
-            <span>Seconds</span>
-        </div>
-    `;
-}
-
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
-
-/*==============================
-SCROLL REVEAL
-==============================*/
-
-const revealItems=document.querySelectorAll(".fade-up");
-
-const revealObserver=new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},
-
-{
-
-threshold:.15
-
-}
-
-);
-
-revealItems.forEach(item=>{
-
-revealObserver.observe(item);
-
-});
-
-/*==============================
-IMAGE MODAL
-==============================*/
-
-galleryImages.forEach(image=>{
-
-image.addEventListener("click",()=>{
-
-if(!imageModal || !modalImage) return;
-
-modalImage.src=image.src;
-
-imageModal.classList.add("show");
-
-document.body.style.overflow="hidden";
-
-});
-
-});
-
-if(imageModal){
-
-imageModal.addEventListener("click",()=>{
-
-imageModal.classList.remove("show");
-
-document.body.style.overflow="";
-
-});
-
-}
-
 /*==============================
 SHARE BUTTON
 ==============================*/
@@ -363,7 +164,7 @@ shareButton.addEventListener("click",async()=>{
 
 const shareData={
 
-title:"Shireen ❤️ Nazeer Wedding",
+title:"Shireen ❤️ Nazeer Wedding Invitation",
 
 text:"You are warmly invited to our wedding ceremony.",
 
@@ -371,104 +172,258 @@ url:window.location.href
 
 };
 
-try{
-
 if(navigator.share){
+
+try{
 
 await navigator.share(shareData);
 
+}catch(error){
+
+console.log(error);
+
+}
+
 }else{
 
-await navigator.clipboard.writeText(window.location.href);
+navigator.clipboard.writeText(window.location.href);
 
 alert("Invitation link copied successfully.");
 
 }
 
-}catch(e){
-
-console.log(e);
-
-}
-
 });
 
 }
 
 /*==============================
-GOLDEN FLOATING PARTICLES
+FADE ANIMATION
 ==============================*/
 
-if(goldParticles){
+const observer=new IntersectionObserver((entries)=>{
 
-for(let i=0;i<45;i++){
+entries.forEach(entry=>{
 
-const particle=document.createElement("span");
+if(entry.isIntersecting){
 
-const size=Math.random()*6+2;
+entry.target.classList.add("fade");
 
-particle.style.position="absolute";
+}
 
-particle.style.width=size+"px";
+});
 
-particle.style.height=size+"px";
+},{
 
-particle.style.borderRadius="50%";
+threshold:.15
 
-particle.style.background="rgba(212,175,55,.85)";
+});
 
-particle.style.left=Math.random()*100+"%";
+document.querySelectorAll("section,.glass-card,.person-card,.family-card,.detail-card,.gallery-item").forEach(item=>{
 
-particle.style.top=Math.random()*100+"%";
+observer.observe(item);
 
-particle.style.opacity=(Math.random()*0.7+0.2).toFixed(2);
+});
 
-particle.style.animation=`
-floatParticle
-${Math.random()*12+10}s
-linear
-infinite`;
+/*==============================
+CREATE STARS
+==============================*/
 
-particle.style.animationDelay=`
--${Math.random()*12}s`;
+function createStars(layer,total,size){
 
-goldParticles.appendChild(particle);
+for(let i=0;i<total;i++){
+
+const star=document.createElement("span");
+
+const s=Math.random()*size+1;
+
+star.style.position="absolute";
+
+star.style.width=s+"px";
+
+star.style.height=s+"px";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.background="#ffffff";
+
+star.style.borderRadius="50%";
+
+star.style.opacity=Math.random();
+
+star.style.animation=
+
+`twinkle ${2+Math.random()*4}s infinite`;
+
+star.style.animationDelay=
+
+Math.random()*6+"s";
+
+layer.appendChild(star);
 
 }
 
 }
 
+createStars(starsBack,120,2);
+
+createStars(starsMiddle,80,3);
+
+createStars(starsFront,40,4);
+
+/*==============================
+GOLD PARTICLES
+==============================*/
+
+function createParticle(){
+
+const dot=document.createElement("span");
+
+const size=Math.random()*5+2;
+
+dot.style.position="absolute";
+
+dot.style.width=size+"px";
+
+dot.style.height=size+"px";
+
+dot.style.left=Math.random()*100+"%";
+
+dot.style.bottom="-20px";
+
+dot.style.borderRadius="50%";
+
+dot.style.background="rgba(212,175,55,.9)";
+
+dot.style.boxShadow="0 0 12px gold";
+
+dot.style.animation=
+
+`floatDust ${6+Math.random()*6}s linear forwards`;
+
+particles.appendChild(dot);
+
+setTimeout(()=>{
+
+dot.remove();
+
+},12000);
+
+}
+
+setInterval(createParticle,250);
+
+/*==============================
+PART 3
+==============================*/
 /*==============================
 SHOOTING STARS
 ==============================*/
 
-const shootingStars=document.querySelectorAll(".shooting-stars span");
+function createShootingStar(){
 
-shootingStars.forEach((star,index)=>{
+const star=document.createElement("span");
 
-star.style.top=Math.random()*50+"%";
+star.style.position="absolute";
 
-star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*35+"%";
 
-star.style.animationDelay=(index*2)+"s";
+star.style.right="-200px";
 
-star.style.animationDuration=(6+Math.random()*4)+"s";
+star.style.width=220+"px";
+
+star.style.height="2px";
+
+star.style.background=
+
+"linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))";
+
+star.style.transform="rotate(315deg)";
+
+star.style.opacity="0";
+
+star.style.animation=
+
+`shooting ${2+Math.random()}s linear forwards`;
+
+shooting.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},3500);
+
+}
+
+setInterval(()=>{
+
+createShootingStar();
+
+},4000);
+
+/*==============================
+SMOOTH ACTIVE MENU
+==============================*/
+
+const sections=document.querySelectorAll("section");
+
+const navLinks=document.querySelectorAll("#nav a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-150;
+
+const height=section.offsetHeight;
+
+if(pageYOffset>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
 
 });
 
 /*==============================
-KEYBOARD SHORTCUTS
+PARALLAX
 ==============================*/
 
-document.addEventListener("keydown",(event)=>{
+window.addEventListener("mousemove",(e)=>{
 
-if(event.key==="Escape" && imageModal){
+const x=e.clientX/window.innerWidth;
 
-imageModal.classList.remove("show");
+const y=e.clientY/window.innerHeight;
 
-document.body.style.overflow="";
+starsBack.style.transform=
 
-}
+`translate(${x*8}px,${y*8}px)`;
+
+starsMiddle.style.transform=
+
+`translate(${x*15}px,${y*15}px)`;
+
+starsFront.style.transform=
+
+`translate(${x*25}px,${y*25}px)`;
 
 });
 
@@ -483,54 +438,11 @@ img.setAttribute("draggable","false");
 });
 
 /*==============================
-PREVENT RIGHT CLICK
-(OPTIONAL - REMOVE IF NOT NEEDED)
-==============================*/
-
-// document.addEventListener("contextmenu",(e)=>{
-// e.preventDefault();
-// });
-
-/*==============================
-WINDOW RESIZE
-==============================*/
-
-window.addEventListener("resize",()=>{
-
-if(window.innerWidth>992){
-
-if(navLinks){
-
-navLinks.classList.remove("open");
-
-}
-
-if(menuToggle){
-
-menuToggle.classList.remove("active");
-
-}
-
-}
-
-});
-
-/*==============================
-INITIALIZATION
+SCRIPT COMPLETE
 ==============================*/
 
 console.log(
 
-"✨ Premium Islamic Wedding Invitation Loaded Successfully"
+"✨ Premium Wedding Invitation Loaded Successfully ✨"
 
 );
-
-console.log(
-
-"❤️ Shireen & Nazeer"
-
-);
-
-/*==================================================
-SCRIPT.JS COMPLETED
-==================================================*/
