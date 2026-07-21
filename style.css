@@ -1321,6 +1321,53 @@ margin-top:18px;
 
 }
 
+.inviting-card{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.invite-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.inviting-card h2{
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.invite-text{
+    margin-bottom:30px;
+    color:#ddd;
+}
+
+.brothers{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.brother{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:18px;
+    color:#fff;
+}
+
+.brother{
+    font-size:40px;
+}
+
+.brother span{
+    margin-top:10px;
+    font-weight:600;
+    color:var(--gold2);
+}
+
 /*==============================
 FOOTER
 ==============================*/
