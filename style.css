@@ -1153,20 +1153,6 @@ color:#ececec;
 CONTACT
 ==============================*/
 
-.contact-grid{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:20px;
-
-margin-bottom:40px;
-
-}
-
 .contactButton{
 
 display:flex;
@@ -1179,22 +1165,23 @@ padding:18px 35px;
 
 border-radius:60px;
 
-background:
+background:rgba(255,255,255,.05);
 
-linear-gradient(
-135deg,
-#b8860b,
-#ffd369);
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(212,175,55,.25);
+
+color:var(--gold);
 
 font-weight:700;
 
 text-decoration:none;
 
-color:#111;
-
 transition:.35s;
 
 min-width:240px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.30);
 
 }
 
@@ -1202,52 +1189,11 @@ min-width:240px;
 
 transform:translateY(-6px);
 
-box-shadow:
+background:rgba(212,175,55,.15);
 
-0 0 35px rgba(212,175,55,.60);
+border-color:var(--gold);
 
-}
-
-.shareArea{
-
-text-align:center;
-
-}
-
-#shareButton{
-
-border:none;
-
-cursor:pointer;
-
-padding:18px 45px;
-
-border-radius:60px;
-
-background:
-
-linear-gradient(
-135deg,
-#b8860b,
-#ffd369);
-
-font-size:17px;
-
-font-weight:700;
-
-color:#111;
-
-transition:.35s;
-
-}
-
-#shareButton:hover{
-
-transform:translateY(-6px);
-
-box-shadow:
-
-0 0 35px rgba(212,175,55,.60);
+box-shadow:0 0 30px rgba(212,175,55,.40);
 
 }
 
